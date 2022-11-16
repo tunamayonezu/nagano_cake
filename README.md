@@ -22,9 +22,9 @@ https://drive.google.com/file/d/1AD2P25Trp12J7edrN9yLmaMduJ03bQ15/view?usp=shari
 - 'sqlite3', '~> 1.4'
 ## 開発者
 ***
-###チーム名
+### チーム名
 - ツナマヨネーズ
-###メンバー
+### メンバー
 - ほり
 - ありー
 - れん
