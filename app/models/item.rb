@@ -19,7 +19,7 @@ class Item < ApplicationRecord
   #################
   
   def purchase_price
-    (price* 1.1).floor
+    (price* 1.1).floor.floor.to_s(:delimited)
   end
   
   has_one_attached :image
