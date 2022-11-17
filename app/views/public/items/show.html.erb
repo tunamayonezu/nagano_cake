@@ -11,7 +11,7 @@
                 <div class="col-md-6 offset-md-1">
                     <h4><%= @item.name %></h4>
                     <h4><%= @item.explanation %></h4>
-                    <p><%= @item.tax_price %>(税込)</p>
+                    <p><%= @item.purchase_price %>(税込)</p>
                     <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
                         <%= f.hidden_field :item_id, :value => @item.id %>
                         <%= f.select :quantity, *[1..10], class: "" %>
