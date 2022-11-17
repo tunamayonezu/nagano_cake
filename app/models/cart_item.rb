@@ -5,7 +5,7 @@ class CartItem < ApplicationRecord
   
   ############
   
-  def total
+  def total_price
     item.purchase_price * quantity
   end
   
@@ -14,6 +14,6 @@ class CartItem < ApplicationRecord
     cart_items.each do |cart_item|
       array << cart_item.item.purchase_price * cart_item.quantity
     end
-    return(array.sum * 1.1).floor
+    return(array.sum * 1.1).floor.to_s(:delimited)
   end
 end
