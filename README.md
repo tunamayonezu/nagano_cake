@@ -5,8 +5,8 @@
 > 長野県にある小さな洋菓子店「NAGANO CAKE」のECサイト
 
 ## 管理者 ログイン
-メールアドレス admin@admin
-パスワード tunamayo
+- メールアドレス admin@admin
+- パスワード tunamayo
 
 ## 構成
 
