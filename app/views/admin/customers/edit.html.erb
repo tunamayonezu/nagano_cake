@@ -1,2 +1,51 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<!--エラーが出るコードは一旦コメントアウトしてる-->
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <h4>さんの会員情報編集</h4>
+  </div>
+  <div class="row">
+    <%#= form_with model:container, local:true do |f| %>
+      <table class='table'>
+        <tr>
+          <td>会員ID</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>氏名</th>
+          <td><%#= f.string_field :last_name%></td>
+          <td><%#= f.string_field :first_name %></td>
+        </tr>
+        <tr>
+          <th>フリガナ</th>
+          <td><%#= f.string_field :last_name_kana%></td>
+          <td><%#= f.string_field :first_name_kana %></td>
+        </tr>
+        <tr>
+          <td>郵便番号</td>
+          <td><%#= f.string_field :postcode %></td>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <td><%#= f.text_field :address %></td>
+        </tr>
+        <tr>
+          <th>電話番号</th>
+          <td><%#= f.string_field :phone_number %></td>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%#= f.text_field :email %></td>
+        </tr>
+        <tr>
+          <th>会員ステータス</th>
+          <td>
+
+          </td>
+        </tr>
+        <tr>
+          <td><%#= f.submit '変更を保存',class: 'btn btn-success' %></td>
+        </tr>
+      </table>
+    <%# end %>
+  </div>
+</div>
