@@ -1,15 +1,15 @@
 class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!
   def show
-   @customer = Customer.find_by(params[:id])
+   @customer = Customer.find(current_customer.id)
   end
 
   def edit
-    @customer = Customer.find_by(params[:id])
+    @customer = Customer.find(current_customer.id)
   end
 
   def update
-   @customer = Customer.find_by(params[:id])
+   @customer = Customer.find(current_customer.id)
     if @customer.update(customer_params)
       redirect_to mypage_path
     else
