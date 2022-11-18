@@ -14,7 +14,7 @@
               <li><%= link_to "会員一覧", admin_customers_path, class: 'nav-link text-light' %></li><!--会員一覧へのリンク-->
               <li><%= link_to "注文履歴一覧", orders_path, class: 'nav-link text-light' %></li><!--注文履歴一覧へのリンク-->
               <li><%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-light' %></li><!--ジャンル一覧へのリンク-->
-              <li><%= link_to "ログアウト", destroy_admin_session_path, class: 'nav-link text-light' %></li><!--ログアウトへのリンク-->
+              <li><%= link_to "ログアウト", destroy_admin_session_path,  method: :delete, class: 'nav-link text-light' %></li><!--ログアウトへのリンク-->
             </ul>
           </div>
         <% else %><!--urlにadminが無い場合-->
