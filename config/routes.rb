@@ -34,7 +34,7 @@ scope module: :public do
   delete "cart_items/destroy_all" => "cart_items#destroy_all" , as: "destroy_all"
   resources :orders, only: [:new,:create,:index,:show]
   post "orders/confirm" => "orders#confirm", as: "confirm"
-  get "orders/complete" => "orders#complete", as: "complete"
+  post "orders/complete" => "orders#complete", as: "complete"
   resources :deliveries, except: [:show]
   end
 

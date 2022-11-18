@@ -9,7 +9,7 @@ class CartItem < ApplicationRecord
     item.purchase_price * quantity
   end
   
-  def self.cart_items_total_payment(cart_items)
+  def self.cart_items_total_price(cart_items)
     array = []
     cart_items.each do |cart_item|
       array << cart_item.item.purchase_price * cart_item.quantity
