@@ -1,2 +1,28 @@
-<h1>Admin::Customers#index</h1>
-<p>Find me in app/views/admin/customers/index.html.erb</p>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-8 offset-md-1'>
+      <h2>会員一覧</h2>
+      <table class='table table-hover table-inverse'>
+        <thead>
+          <tr>
+            <th>会員ID</th>
+            <th>氏名</th>
+            <th>　　　メールアドレス</th>
+            <th>　　　ステータス</th>
+          </tr>
+        </thead>
+        <!--↓多分これ使う-->
+        <%# @customers.each do |customer| %>
+         <tbody>
+           <tr>
+             <td></td>
+             <td></td>
+             <td></td>
+             <td></td>
+           </tr>
+         </tbody>
+      </table>
+      <%= paginate @customers %>
+    </div>
+  </div>
+</div>
