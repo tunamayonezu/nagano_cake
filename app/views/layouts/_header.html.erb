@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg nav-dark bg-dark">
     <div class="container">
       <% if admin_signed_in? %> <!--管理者側がログイン中か確認する-->
-        <% if request.fullpath.include?"/admin" %>　<!--urlにadminがついているか確認する-->
+        <% if request.fullpath.include?"/admin" %><!--urlにadminがついているか確認する-->
           <!--管理側でのheader-->
           <a class="navbar-brand" hear="/admin"><span>Nagano-Cake</span></a><!--注文履歴一覧へのリンク-->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><!--レスポンシブ対応の展開ボタン-->
@@ -14,7 +14,7 @@
               <li><%= link_to "会員一覧", admin_customers_path, class: 'nav-link text-light' %></li><!--会員一覧へのリンク-->
               <li><%= link_to "注文履歴一覧", orders_path, class: 'nav-link text-light' %></li><!--注文履歴一覧へのリンク-->
               <li><%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-light' %></li><!--ジャンル一覧へのリンク-->
-              <li><%= link_to "ログアウト", destroy_admin_session_path,  method: :delete, class: 'nav-link text-light' %></li><!--ログアウトへのリンク-->
+
             </ul>
           </div>
         <% else %><!--urlにadminが無い場合-->
@@ -27,8 +27,8 @@
             <ul class="navbar-nav ml-auto">
               <li><%= link_to "マイページ", mypage_path, class: 'nav-link text-light' %></li><!--マイページへのリンク-->
               <li><%= link_to "商品一覧", items_path, class: 'nav-link text-light' %></li><!--商品一覧へのリンク-->
-              <li><%= link_to "カート", cart_item_path, class: 'nav-link text-light' %></li><!--カートへのリンク-->
-              <li><%= link_to "ログアウト", destroy_customer_session_path, class: 'nav-link text-light' %></li><!--ログアウトへのリンク-->
+              <li><%= link_to "カート", cart_items_path, class: 'nav-link text-light' %></li><!--カートへのリンク-->
+              <li><%= link_to "ログアウト", destroy_customer_session_path, class: 'nav-link text-light', method: :delete %></li><!--ログアウトへのリンク-->
             </ul>
           </div>
         <% end %>
@@ -42,8 +42,8 @@
           <ul class="navbar-nav ml-auto">
             <li><%= link_to "マイページ", mypage_path, class: 'nav-link text-light' %></li><!--マイページへのリンク-->
             <li><%= link_to "商品一覧", items_path, class: 'nav-link text-light' %></li><!--商品一覧へのリンク-->
-            <li><%= link_to "カート", cart_item_path, class: 'nav-link text-light' %></li><!--カートへのリンク-->
-            <li><%= link_to "ログアウト", destroy_customer_session_path, class: 'nav-link text-light' %></li><!--ログアウトへのリンク-->
+            <li><%= link_to "カート", cart_items_path, class: 'nav-link text-light' %></li><!--カートへのリンク-->
+            <li><%= link_to "ログアウト", destroy_customer_session_path, class: 'nav-link text-light', method: :delete %></li><!--ログアウトへのリンク-->
           </ul>
         </div>
       <% else %><!--非ログイン時に表示するheader-->
