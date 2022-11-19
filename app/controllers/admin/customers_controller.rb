@@ -28,7 +28,7 @@ class Admin::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana,
+    params.permit(:last_name, :first_name, :last_name_kana, :first_name_kana,
       :postcode, :address, :phone_number, :email, :is_deleted)
     #苗字・名前・苗字カナ・名前かな
     #郵便番号・住所・電話番号・メアド・会員ステータス(これはいるか分からん)
