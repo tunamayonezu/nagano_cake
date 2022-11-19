@@ -18,7 +18,7 @@ class Order < ApplicationRecord
   private
   
   def delivery_full
-      "#{self.postcode + " " + self.address + " " + self.name}"
+      self.postcode + " " + self.address + " " + self.name
   end
   
 end
