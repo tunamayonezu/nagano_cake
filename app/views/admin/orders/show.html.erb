@@ -1,2 +1,48 @@
-<h1>Admin::Orders#show</h1>
-<p>Find me in app/views/admin/orders/show.html.erb</p>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-8 offset-md-1'>
+      <h4 class="ml-5 mt-3", style="background-color: #9933ff; width:280px; padding-left: 12px; margin-bottom: 40px;">注文履歴詳細</h4>
+
+      <!--<table class="d-flex flex-column" style="height: 200px;">-->
+        <table class='table table-hover table-inverse table-borderless'>
+          <thead>
+        <tr><th>購入者</th><td><%#= @customer.full_name %></td></tr>
+        <tr>
+          <th>配送先</th>
+          <td></td>
+        </tr>
+        <tr>
+          <th>支払い先</th>
+          <td></td>
+        </tr>
+        <tr>
+          <th>注文ステータス</th>
+          <td></td>
+        </tr>
+        </thead>
+      </table>
+      <table class='table table-hover table-inverse'>
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th>製作ステータス</th>
+          </tr>
+        </thead>
+        <%# @customers.each do |customer| %>
+        <tbody>
+          <tr>
+            <td><%#= order_item.id %></td>
+            <td></td>
+            <td></td>
+           </tr>
+           <%# end %>
+         </tbody>
+
+      </table>
+
+    </div>
+  </div>
+</div>

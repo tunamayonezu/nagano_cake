@@ -1,25 +1,31 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
     <div class='col-md-8 offset-md-1'>
-      <h2>会員一覧</h2>
+      <h2 class="ml-5 mt-3", style="background-color: #ff0; width:230px; padding-left: 12px; margin-bottom: 40px;">会員一覧</h2>
       <table class='table table-hover table-inverse'>
         <thead>
           <tr>
             <th>会員ID</th>
             <th>氏名</th>
-            <th>　　　メールアドレス</th>
-            <th>　　　ステータス</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
           </tr>
         </thead>
         <!--↓多分これ使う-->
-        <%# @customers.each do |customer| %>
-         <tbody>
-           <tr>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
+        <% @customers.each do |customer| %>
+        <tbody>
+          <tr>
+            <td><%= customer.id %></td>
+            <td><%= link_to customer.full_name , admin_customer_path(customer.id) %></td>
+            <td><%= customer.email %></td>
+            <!--会員ステータス-->
+              <%# if customer.is_active == true %>
+          <!--      <td class="text-success">有効</td>
+              <%# else %>
+                <td class="text-secondary">退会</td>
+              <%# end %>-->
            </tr>
+           <% end %>
          </tbody>
       </table>
       <%= paginate @customers %>

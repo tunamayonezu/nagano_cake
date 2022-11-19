@@ -1,51 +1,51 @@
 <!--エラーが出るコードは一旦コメントアウトしてる-->
 <div class='container px-5 px-sm-0'>
   <div class='row'>
-    <h4>さんの会員情報編集</h4>
+    <h4><%= @customer.full_name %>さんの会員情報編集</h4>
   </div>
   <div class="row">
-    <%#= form_with model:container, local:true do |f| %>
-      <table class='table'>
-        <tr>
-          <td>会員ID</td>
-          <td></td>
+    <%= form_with model: @container, url: admin_customer_path(@customer.id), local: true ,method: :patch do |f| %>
+      <table class='table table-hover table-inverse table-borderless'>
+        <tr class="form-group row">
+          <th>会員ID</th>
+          <td><%= @customer.id %></td>
         </tr>
-        <tr>
-          <th>氏名</th>
-          <td><%#= f.string_field :last_name%></td>
-          <td><%#= f.string_field :first_name %></td>
+        <tr class="form-group">
+          <th><%= f.label :"氏名"%></th>
+          <td><%= f.text_field :last_name, value: @customer.last_name %></td>
+          <td><%= f.text_field :first_name, value: @customer.first_name %></td>
         </tr>
-        <tr>
-          <th>フリガナ</th>
-          <td><%#= f.string_field :last_name_kana%></td>
-          <td><%#= f.string_field :first_name_kana %></td>
+        <tr class="form-group">
+          <th><%=f.label :"フリガナ"%></th>
+          <td><%= f.text_field :last_name_kana, value: @customer.last_name_kana %></td>
+          <td><%= f.text_field :first_name_kana, value: @customer.first_name_kana %></td>
         </tr>
-        <tr>
-          <td>郵便番号</td>
-          <td><%#= f.string_field :postcode %></td>
+         <tr class="form-group">
+          <td><%=f.label :"郵便番号"%></td>
+          <td><%= f.text_field :postcode, value: @customer.postcode %></td>
         </tr>
-        <tr>
-          <th>住所</th>
-          <td><%#= f.text_field :address %></td>
+        <tr class="form-group">
+          <th><%=f.label :"住所"%></th>
+          <td><%= f.text_field :address, value: @customer.address %></td>
         </tr>
-        <tr>
-          <th>電話番号</th>
-          <td><%#= f.string_field :phone_number %></td>
+        <tr class="form-group">
+          <th><%=f.label :"電話番号"%></th>
+          <td><%= f.text_field :phone_number, value: @customer.phone_number %></td>
         </tr>
-        <tr>
-          <th>メールアドレス</th>
-          <td><%#= f.text_field :email %></td>
+        <tr class="form-group">
+          <th><%=f.label :"メールアドレス"%></th>
+          <td><%= f.text_field :email, value: @customer.email %></td>
         </tr>
-        <tr>
-          <th>会員ステータス</th>
+        <tr class="form-group">
+          <th><%=f.label :"会員ステータス"%></th>
           <td>
 
           </td>
         </tr>
-        <tr>
-          <td><%#= f.submit '変更を保存',class: 'btn btn-success' %></td>
+        <tr class="form-group">
+          <td><%= f.submit '変更を保存',class: 'btn btn-success' %></td>
         </tr>
       </table>
-    <%# end %>
+    <% end %>
   </div>
 </div>
