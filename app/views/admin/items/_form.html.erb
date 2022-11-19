@@ -13,7 +13,7 @@
   </div>
   <div class="form-group row">
     <%= f.label :ジャンル, class: 'col-md-4' %>
-    <%= f.collection_select :genre_id, @genres, :id, :name, {prompt: "ジャンルを選択してください"}, {class: 'col-md-4'} %>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "ジャンルを選択してください" %>
   </div>
   <div class="form-group row">
     <%= f.label :税抜き価格, class: 'col-md-4' %>
@@ -23,8 +23,5 @@
     <%= f.label :販売ステータス, class: 'col-md-4' %>
     <%= f.radio_button :is_active, "販売中" %>販売中
     <%= f.radio_button :is_active, "販売停止中" %>販売停止中
-  </div>
-  <div class="form-group row">
-    <%= f.submit :新規登録, class: 'btn btn-success' %>
   </div>
 <% end %>  

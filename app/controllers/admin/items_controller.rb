@@ -35,7 +35,6 @@ class Admin::ItemsController < ApplicationController
   def update
     #idを参照して更新する商品を探す
     @item = Item.find(params[:id])
-    @genres = Genre.all
     if @item.update(item_params)#更新が成功した場合
       redirect_to edit_admin_item_path#更新した商品の詳細ページへ行く
     else#更新ができなかった場合
@@ -46,6 +45,6 @@ class Admin::ItemsController < ApplicationController
   private
   
   def item_params#入力されたデータが、作成データとして許可されているパラメータか確認する
-    params.require(:item).permit(:name, :explanation, :genre_id, :price, :in_active, :image)
+    params.require(:item).permit(:image, :name, :explanation, :genre_id, :price, :is_active)
   end
 end
