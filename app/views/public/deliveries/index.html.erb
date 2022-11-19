@@ -27,6 +27,7 @@
       <th>郵便番号</th>
       <th>住所</th>
       <th>宛名</th>
+       <th colspan="5"></th>
     </tr>
   </thead>
   <tbody>
@@ -35,6 +36,8 @@
        <td><%= delivery.postcode %></td>
        <td><%= delivery.address %></td>
        <td><%= delivery.name %></td>
+       <td><%= link_to "編集する", edit_delivery_path(delivery), class: 'btn btn-success' %></td>
+       <td><%= link_to "削除する", delivery_path(delivery), method: :delete, class: 'btn btn-danger' %></td>
      </tr>
      <% end %>
   </tbody>
