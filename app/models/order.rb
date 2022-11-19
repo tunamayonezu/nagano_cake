@@ -13,4 +13,12 @@ class Order < ApplicationRecord
   validates :address, presence: true
   validates :name, presence: true
   
+  #################
+  
+  private
+  
+  def delivery_full
+      self.postcode + " " + self.address + " " + self.name
+  end
+  
 end
