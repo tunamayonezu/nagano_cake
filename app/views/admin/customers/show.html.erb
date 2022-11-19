@@ -34,7 +34,11 @@
         </tr>
         <tr>
           <th>会員ステータス</th>
-          <td></td>
+          <% if @customer.is_deleted %>
+            <td class="text-Secondary"><b>退会</b></td>
+          <% else %>
+            <td class="text-success"><b>有効</b></td>
+          <% end %>
         </tr>
         <tr>
           <th></th>
