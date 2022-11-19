@@ -22,8 +22,8 @@
                                 <%= cart_item.item.name %>
                             </td>
                             <td>¥<%= (cart_item.item.price * 1.1).floor.to_s(:delimited) %></td>
-                            <td><%= cart_item.quantiy %></td>
-                            <td>¥<%= (cart_item.item.price * cart_item.quantiy * 1.1).floor.to_s(:delimited) %></td>
+                            <td><%= cart_item.quantity %></td>
+                            <td>¥<%= (cart_item.item.price * cart_item.quantity * 1.1).floor.to_s(:delimited) %></td>
                         </tr>
                     </tbody>
                     <% end %>
@@ -33,7 +33,7 @@
         <div class="col-4">
             <div class="table-responsive">
                 <table class="table table-bordered">
-                    <%= form_with model: @order, url: complete_path, local:true do |f| %>
+                    <%= form_with model: @order, url: orders_path, method: :post, local:true do |f| %>
                     <tr>
                         <td>送料</td>
                         <td>
@@ -64,6 +64,7 @@
                 </div>
                 <div class="col-8">
                     <h4><%= @order.payment_method %></h4>
+                    <%= f.hidden_field :payment_method, :value => @order.payment_method %>
                 </div>
             </div>
             <div class="row">
