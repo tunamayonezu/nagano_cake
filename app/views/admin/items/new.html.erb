@@ -2,10 +2,36 @@
   <div class="row">
     <h2>商品新規登録</h2>
     <div class="col-sm-12">
-      <%= render "form", item: @item, genres: @genres %> <!--_form.html.erbをそのまま呼び出す-->
-      <div class="form-group row">
-        <%= f.submit :新規登録, class: 'btn btn-success' %>
-      </div>
+      <%= form_with model: @item, url:admin_items_path,  local: true do |f| %>
+        <div class="form-group row">
+          <%= f.label :商品画像, class: 'col-md-4' %>
+          <%= f.file_field :image, class: 'col-md-8', accept: "image/*" %>
+        </div>
+        <div class="form-group row">
+          <%= f.label :商品名, class: 'col-md-4' %>
+          <%= f.text_field :name, class: 'col-md-8' %>
+        </div>
+        <div class="form-group row">
+          <%= f.label :商品説明, class: 'col-md-4' %>
+          <%= f.text_area :explanation, class: 'col-md-8' %>
+        </div>
+        <div class="form-group row">
+          <%= f.label :ジャンル, class: 'col-md-4' %>
+          <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "ジャンルを選択してください" %>
+        </div>
+        <div class="form-group row">
+          <%= f.label :税抜き価格, class: 'col-md-4' %>
+          <%= f.text_field :price, class: 'col-md-7' %><span class="col-md-1">円</span>
+        </div>
+        <div class="form-group row">
+          <%= f.label :販売ステータス, class: 'col-md-4' %>
+          <%= f.radio_button :is_active, "販売中" %>販売中
+          <%= f.radio_button :is_active, "販売停止中" %>販売停止中
+        </div>
+        <div class="form-group row">
+          <%= f.submit :新規登録, class: 'btn btn-success' %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

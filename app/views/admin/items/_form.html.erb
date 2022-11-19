@@ -24,4 +24,8 @@
     <%= f.radio_button :is_active, "販売中" %>販売中
     <%= f.radio_button :is_active, "販売停止中" %>販売停止中
   </div>
-<% end %>  
+<% end %> 
+
+<%= render "form", item: @item, genres: @genres %> <!--_form.html.erbをそのまま呼び出す-->
+
+<%= render "form", item: @item, genres: @genres %> <!--_form.html.erbをそのまま呼び出す-->

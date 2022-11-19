@@ -36,7 +36,7 @@ class Admin::ItemsController < ApplicationController
     #idを参照して更新する商品を探す
     @item = Item.find(params[:id])
     if @item.update(item_params)#更新が成功した場合
-      redirect_to edit_admin_item_path#更新した商品の詳細ページへ行く
+      redirect_to admin_item_path#更新した商品の詳細ページへ行く
     else#更新ができなかった場合
       render 'edit'#編集画面へ戻る
     end
