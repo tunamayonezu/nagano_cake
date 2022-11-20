@@ -1,20 +1,24 @@
 class Public::DeliveriesController < ApplicationController
 
   def index
-
+    @delivery = Delivery.new
     #カスタマーIDを指定
     @customer = Customer.find(current_customer.id)
     #顧客の登録している配送先の情報を@deliveriesに代入
     @deliveries = @customer.deliveries
-  
+
   end
 
   def create
+    @customer = Customer.find(current_customer.id)
     @delivery = Delivery.new(delivery_params)
-    @deliveries = Delivery.all
+    @deliveries = @customer.deliveries
     @delivery.customer_id = current_customer.id
-    @delivery.save
+   if @delivery.save
     redirect_to  deliveries_path
+   else
+    render "index"
+   end
   end
 
   def edit
