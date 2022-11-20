@@ -1,4 +1,13 @@
 <h2>配送先編集</h2>
+<% if @delivery.errors.any? %>
+  <%= @delivery.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @delivery.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+ <% end %>
+
 <%= form_with model: @delivery, url: delivery_path, method: :patch do |f| %>
   <div class="form-group">
     <%= f.label "郵便番号" %>
