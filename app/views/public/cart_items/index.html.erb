@@ -3,7 +3,7 @@
         <div class="col-7">
             <h3>ショッピングカート</h3>
         </div>
-        
+
         <div class="col-4">
             <%= link_to "カートを空にする", destroy_all_path, method: :delete, data: { confirm: '本当に消しますか？' },  class: "btn btn-danger" %>
         </div>
@@ -20,7 +20,7 @@
                         <th></th>
                     </tr>
                 </thead>
-                <%= @cart_items.each do |cart_item| %>
+                <% @cart_items.each do |cart_item| %>
                     <tbody>
                         <tr>
                             <td>
