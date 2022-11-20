@@ -12,15 +12,18 @@
         </tr>
         <tr>
           <th>配送先</th>
-          <td><%= %></td>
+          <td>
+            〒<%= @order.customer.postcode %><%= @order.customer.address %><br>
+              <%= @order.customer.full_name %>
+          </td>
         </tr>
         <tr>
           <th>支払い先</th>
-          <td></td>
+          <td><%= @order.payment_method %></td>
         </tr>
         <tr>
           <th>注文ステータス</th>
-          <td></td>
+          <td><%= %></td>
         </tr>
         </thead>
       </table>
