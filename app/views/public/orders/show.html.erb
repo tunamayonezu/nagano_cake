@@ -64,10 +64,10 @@
                 <tbody>
                     <% @order_item.each do |order_item| %>
                     <tr>
-                        <td><%= order_item.name %></td>
+                        <td><%= order_item.item.name %></td>
                         <td><%= order_item.purchase_price %></td>
                         <td><%= order_item.quantity %></td>
-                        <td><%= order_item.total_price %></td>
+                        <td><%= order_item.total_price.to_s %></td>
                     </tr>
                     <% end %>
                 </tbody>
