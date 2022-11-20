@@ -24,7 +24,12 @@
     </div>
     <div class="row">
       <span class="col-md-5">販売ステータス</span>
-      <span class="col-md-7"><%= @item.is_active %></span>
+      <% if @item.is_active %>
+        <td class="text-Secondary"><b>販売中</b></td>
+      <% else %>
+        <td class="text-success"><b>販売停止</b></td>
+      <% end %>
+      <!--span class="col-md-7"><!%= @item.is_active %></span-->
     </div>
     <div class="text-container">
       <%= link_to "編集する", edit_admin_item_path(@item), class: "ml-5 btn btn-success" %>

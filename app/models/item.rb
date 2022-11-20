@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   has_many :order_items, dependent: :destroy
   has_many :orders, dependent: :destroy
   
-  enum is_active: { 販売中:true, 販売停止:false }
+  #enum is_active: { 販売中:true, 販売停止:false }
   
   #################
   #validates
