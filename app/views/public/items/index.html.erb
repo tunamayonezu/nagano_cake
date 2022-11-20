@@ -9,7 +9,7 @@
             </div>
             <div class="row d-flex flex-wrap">
                 <% @items.each do |item| %>
-                <% if item.is_active == "販売中" %>
+                <% if item.is_active == true %>
                 <div class="col-3 flex-wrap ml-5">
                     <%= link_to item_path(item) do %>
                     <%= image_tag item.get_image(150, 150) %>
