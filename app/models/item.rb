@@ -18,8 +18,9 @@ class Item < ApplicationRecord
   
   #################
   
+  ## 商品の金額に消費税10%を反映させる（to_s(:delimted)で3桁ごとに,を反映させる）
   def purchase_price
-    (price * 1.1).floor.floor.to_s(:delimited)
+    (price * 1.1).floor.to_s(:delimited)
   end
   
   has_one_attached :image
