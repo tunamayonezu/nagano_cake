@@ -14,6 +14,7 @@ class Admin::ItemsController < ApplicationController
   def show
     #idを参照して表示する商品を探す
     @item = Item.find(params[:id])
+    @genres = Genre.all
   end
 
   def edit
