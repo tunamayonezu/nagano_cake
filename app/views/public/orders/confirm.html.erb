@@ -35,15 +35,16 @@
                 <table class="table table-bordered">
                     <%= form_with model: @order, url: orders_path, method: :post, local:true do |f| %>
                     <tr>
+                        <td>商品合計</td>
+                        <td>¥<%= @total_price.to_s(:delimited) %></td>
+                    </tr>
+                    <tr>
                         <td>送料</td>
                         <td>
                             ¥<%= @order.postage.to_s(:delimited) %>
                             <%= f.hidden_field :postage, :value => @order.postage %>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>商品合計</td>
-                        <td>¥<%= @total_price.to_s(:delimited) %></td>
+
                     </tr>
                     <tr>
                         <td>請求金額</td>
