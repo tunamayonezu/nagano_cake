@@ -14,7 +14,7 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :explanation, presence: true
   validates :price, presence: true
-  validates :is_active, presence: true
+  validates :is_active, inclusion: { in: [true, false] }
   
   #################
   
