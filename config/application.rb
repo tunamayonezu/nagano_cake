@@ -8,8 +8,11 @@ Bundler.require(*Rails.groups)
 
 module NaganoCake
   class Application < Rails::Application
+
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
+
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -20,6 +23,9 @@ module NaganoCake
     # config.eager_load_paths << Rails.root.join("extras")
 
     # 日本（ja）に設定
-   
+
+    config.i18n.default_locale = :ja
+
+
   end
 end
