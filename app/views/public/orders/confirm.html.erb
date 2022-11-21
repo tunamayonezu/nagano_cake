@@ -64,7 +64,7 @@
                     <h3>支払方法</h3>
                 </div>
                 <div class="col-8">
-                    <h4><%= @order.payment_method %></h4>
+                    <h4><%= @order.payment_method_i18n %></h4>
                     <%= f.hidden_field :payment_method, :value => @order.payment_method %>
                 </div>
             </div>
