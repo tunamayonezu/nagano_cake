@@ -8,7 +8,9 @@
           <thead>
         <tr>
           <th>購入者</th>
-          <td><%= @order.customer.full_name %></td>
+          <td><%= link_to admin_customer_path do %>
+          <%= @order.customer.full_name %></td>
+          <% end %>
         </tr>
         <tr>
           <th>配送先</th>
