@@ -23,7 +23,6 @@ class Item < ApplicationRecord
     (price * 1.1).floor.to_s(:delimited)
   end
   
-  
   has_one_attached :image
   def get_image(width, height)
     unless image.attached?
