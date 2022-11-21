@@ -23,6 +23,11 @@ class Item < ApplicationRecord
     (price * 1.1).floor.to_s(:delimited)
   end
   
+  ##ジャンル検索機能
+  def self.search(search_id)
+    Item.where(["genre_id LIKE ?", "#{search_id}"])
+  end
+  
   has_one_attached :image
   def get_image(width, height)
     unless image.attached?
