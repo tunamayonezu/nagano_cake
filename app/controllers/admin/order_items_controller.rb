@@ -1,37 +1,31 @@
 class Admin::OrderItemsController < ApplicationController
 
   def update
-    @order = Order.find_by(params[:id])
-    @order_item = OrderItem.find(params[:id])
-    @order_items = @order.order_items.all
+    @order = Order.find_by(params[:id])#id以外のカラムを検索している　モデルの中かな
+    @order_item = OrderItem.find(params[:order_item][:order_item_id])#ビューのhidden_fieldを使用するのにorder_itemとそのidを定義している
+    #@order_items = @order.order_items.all
 
-    is_updated = true
     if @order_item.update(order_item_params)
-
-     #@order.order_itmes.any?{|order_item| order_itme.production_status == "製作中"}
-      @order.update(status: 2)
-      if @order_item.production_status == "製作中"
-        @order_items.each do |order_item|
-          if order_item.production_status != "製作完了"
-            is_updated = false
-          end
-      #if @order.order_itmes.all?{|order_itme| order_itme.production_status == "製作完了"}
-        #@order.update(status: "発送準備中")
-        end
-        @order.update(status: 3 ) if is_updated
-      end
-
-      redirect_to admin_order_path(@order_itme.order)
+      #params[:order_item][:production_status] == "in_production"#英語に変える 注文した商品の製作ステータスが、もしも製作中だったら
+        @order.update(status: 2)
+        #注文ステータスを製作中に変えてかsら
+        @order_item.update(order_item_params)#注文した商品(製作ステータス)を更新をする
     end
+
+    if @order.order_items.count == @order.order_items.where(production_status: "production_complete").count
+      #もしも注文した商品の数と、製作完了した商品の数が一致したら
+       @order.update(status: 3)#注文ステータスを発送準備中に変える
+    end
+      redirect_to admin_order_path(@order_item.order)
   end
+
 
 
 
   private
 
   def order_item_params
-    params.require(:order_itme).permit(:production_status)
+    params.require(:order_item).permit(:production_status)
   end
 end
-
 
