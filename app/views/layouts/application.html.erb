@@ -17,6 +17,15 @@
     <%#<% end %>
     <main>
      <%= flash[:notice] %>
+     <style type="text/css">
+        body{
+          background-image: url(assets/bacground3.jpeg);
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-attachment: fixed;
+        }
+      </style>
      <%= yield %>
     </main>
     <%= render 'layouts/footer' %>
