@@ -4,7 +4,7 @@
       <% if admin_signed_in? %> <!--管理者側がログイン中か確認する-->
         <% if request.fullpath.include?"/admin" %><!--urlにadminがついているか確認する-->
           <!--管理側でのheader-->
-          <a class="navbar-brand" href="/admin"><%= image_tag 'logo.png', :size => '150x120' %></a><!--注文履歴一覧へのリンク-->
+          <%= link_to root_path , 'data-turbolinks': false do %><%= image_tag 'logo.png', :size => '150x120' %><% end %><!--注文履歴一覧へのリンク-->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><!--レスポンシブ対応の展開ボタン-->
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -20,7 +20,7 @@
         <% else %><!--urlにadminが無い場合-->
           <% if customer_signed_in? %> <!--顧客側がログイン中か確認する-->
             <!--顧客側ログイン中のheader-->
-            <a class="navbar-brand" href="/"><%= image_tag 'logo.png', :size => '150x120' %></a><!--topページへのリンク-->
+            <%= link_to root_path , 'data-turbolinks': false do %><%= image_tag 'logo.png', :size => '150x120' %><% end %><!--注文履歴一覧へのリンク-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><!--レスポンシブ対応の展開ボタン-->
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -54,7 +54,7 @@
         <% end %>
       <% elsif customer_signed_in? %> <!--顧客側がログイン中か確認する-->
         <!--顧客側のheader-->
-        <a class="navbar-brand" href="/"><%= image_tag 'logo.png', :size => '150x120' %></a><!--topページへのリンク-->
+        <%= link_to root_path , 'data-turbolinks': false do %><%= image_tag 'logo.png', :size => '150x120' %><% end %><!--注文履歴一覧へのリンク-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><!--レスポンシブ対応の展開ボタン-->
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -70,7 +70,7 @@
         <%= render "layouts/search", { search: @search } %>
         </div>
       <% else %><!--非ログイン時に表示するheader-->
-        <a class="navbar-brand" href="/"><%= image_tag 'logo.png', :size => '150x120' %></a><!--topページへのリンク-->
+        <%= link_to root_path , 'data-turbolinks': false do %><%= image_tag 'logo.png', :size => '150x120' %><% end %><!--注文履歴一覧へのリンク-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><!--レスポンシブ対応の展開ボタン-->
           <span class="navbar-toggler-icon"></span>
         </button>
