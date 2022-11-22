@@ -13,5 +13,10 @@
  *= require_tree .
  *= require_self
  */
- 
 
+@import "skippr";
+
+#top-image {
+    height: 500px;
+    width: 100%;
+}

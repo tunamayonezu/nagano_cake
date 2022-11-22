@@ -1,43 +1,46 @@
+
 <div id="top" class="container">
     <div class="row">
         <div class="col-3">
             <%= render "admin/genres/genre_search", genres: @genres %>
         </div>
         <div class="col-9 mb-4">
-            <div class="mb-4">
-                <div class="top-box mt-3">
-                    <div class="card" style="background-size: cover;">
-                        <img class="card-img" src="/assets/sweets_shortcake.png" alt="">
-                            <div class="card-img-overlay text-center mt-5">
-                                <h4>ようこそ、ながのＣＡＫＥへ！！</h4>
-                                <p>
+            <div class="row mb-4">
+                <div id="top-image" class="top-box mt-3">
+                    <div id="target">
+                        <img src="/assets/cake1.jpeg" alt="">
+                        <img src="/assets/cake2.jpeg" alt="">
+                        <img src="/assets/cake3.jpeg" alt="">
+                        <img src="/assets/cake4.jpeg" alt="">
+                    </div>
+                    <div class="card-img-overlay text-center mt-5">
+                        <div class="col-8 mx-auto pt-2 pb-2" style="background-color:rgba(255,255,254,0.5);">
+                            <h4>ようこそ、ながのＣＡＫＥへ！！</h4>
+                            <p>
                                 このサイトは、ケーキ販売のＥＣサイトになります。<br>
                                 会員でない方も商品の閲覧はできますが、<br>
                                 購入には会員登録が必要になります。
-                                </p>
-                            </div>
+                            </p>
                         </div>
                     </div>
                 </div>
-                    <h2>新着商品</h2>
-                    <div class="row">
-                        <% @item.each do |item| %>
-
-                        <% if item.is_active == true %>
-                        <div class="card text-center pt-3">
-                            <%= link_to item_path(item) do %>
-                                <%= image_tag item.get_image(100, 100) %><br>
-                            <% end %>
-                            <p><%= item.name %></p>
-                            <p>¥<%= item.purchase_price %>(税込)</p>
-                        </div>
+            </div>
+                <h2>新着商品</h2>
+            <div class="row">
+                <% @item.each do |item| %>
+                <% if item.is_active == true %>
+                    <div class="card text-center p-2 m-2">
+                        <%= link_to item_path(item) do %>
+                        <%= image_tag item.get_image(100, 100) %><br>
                         <% end %>
-
-                        <% end %>
+                        <p><%= item.name %></p>
+                        <p>¥<%= item.purchase_price %>(税込)</p>
                     </div>
-                    <div class="row">
-                        <div class="col-12 text-right"><%= link_to "全ての商品を見る >", items_path, class: "" %></div>
-                    </div>
+                <% end %>
+                <% end %>
+            </div>
+            <div class="row">
+                <div class="col-12 text-right"><%= link_to "全ての商品を見る >", items_path, class: "" %></div>
             </div>
         </div>
     </div>
