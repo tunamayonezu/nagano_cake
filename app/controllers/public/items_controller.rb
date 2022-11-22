@@ -6,13 +6,13 @@ class Public::ItemsController < ApplicationController
       @items = @genre.items
     elsif @search_items
       @items = @search_items
-    
+
     else
       @items = Item.all
     end
-    
-    
-    
+
+
+
   end
 
   def show
