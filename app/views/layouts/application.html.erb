@@ -16,8 +16,17 @@
     <%#<%= render "layouts/search", { search: @search } %>
     <%#<% end %>
     <main>
-     <%= flash[:notice] %>
-     <%= yield %>
+      <style type="text/css">
+        body{
+          background-image: url(assets/bacground3.jpeg);
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-attachment: fixed;
+        }
+      </style>
+      <%= flash[:notice] %>
+      <%= yield %>
     </main>
     <%= render 'layouts/footer' %>
   </body>
