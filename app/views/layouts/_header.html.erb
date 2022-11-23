@@ -1,92 +1,44 @@
 <header>
   <nav class="navbar navbar-expand-lg nav-light bg-light">
     <div class="container" style='height:120px'>
-      <% if admin_signed_in? %> <!--管理者側がログイン中か確認する-->
-        <% if request.fullpath.include?"/admin" %><!--urlにadminがついているか確認する-->
+
           <!--管理側でのheader-->
-          <a class="navbar-brand" href="/admin"><%= image_tag 'logo.png', :size => '150x120' %></a><!--注文履歴一覧へのリンク-->
+          <%= link_to root_path , 'data-turbolinks': false do %><%= image_tag 'logo.png', :size => '150x120' %><% end %><!--注文履歴一覧へのリンク-->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><!--レスポンシブ対応の展開ボタン-->
             <span class="navbar-toggler-icon"></span>
           </button>
+          <div class="row">
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-              <li><%= link_to "商品一覧", admin_items_path, class: 'nav-link text-dark' %></li><!--商品一覧へのリンク-->
-              <li><%= link_to "会員一覧", admin_customers_path, class: 'nav-link text-dark' %></li><!--会員一覧へのリンク-->
-              <li><%= link_to "注文履歴一覧", admin_root_path, class: 'nav-link text-dark' %></li><!--注文履歴一覧へのリンク-->
-              <li><%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-dark' %></li><!--ジャンル一覧へのリンク-->
-              <li><%= link_to "ログアウト", destroy_admin_session_path, class: 'nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
+              <% if admin_signed_in? %> <!--管理者側がログイン中か確認する-->
+                <% if request.fullpath.include?"/admin" %><!--urlにadminがついているか確認する-->
+                  <li><%= link_to "商品一覧", admin_items_path, class: 'nav-link text-dark' %></li><!--商品一覧へのリンク-->
+                  <li><%= link_to "会員一覧", admin_customers_path, class: 'nav-link text-dark' %></li><!--会員一覧へのリンク-->
+                  <li><%= link_to "注文履歴一覧", admin_root_path, class: 'nav-link text-dark' %></li><!--注文履歴一覧へのリンク-->
+                  <li><%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-dark' %></li><!--ジャンル一覧へのリンク-->
+                  <li><%= link_to "ログアウト", destroy_admin_session_path, class: 'nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
+                <% end %>
+                 
+              <!--顧客側ログイン中のheader-->
+              <% elsif customer_signed_in? %> <!--顧客側がログイン中か確認する-->
+                    <li><%= link_to "マイページ", mypage_path, class: 'nav-link text-dark' %></li><!--マイページへのリンク-->
+                    <li><%= link_to "商品一覧", items_path, class: 'nav-link text-dark' %></li><!--商品一覧へのリンク-->
+                    <li><%= link_to "カート", cart_items_path, class: 'nav-link text-dark' %></li><!--カートへのリンク-->
+                    <li><%= link_to "ログアウト", destroy_customer_session_path, class: 'nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
+              <% else %><!--顧客側ログアウト中のheader-->
+                  <li><%= link_to "About", about_path, class: 'nav-link text-dark' %></li><!--aboutへのリンク-->
+                  <li><%= link_to "商品一覧", items_path, class: 'nav-link text-dark' %></li><!--商品一覧へのリンク-->
+                  <li><%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-dark' %></li><!--新規登録へのリンク-->
+                  <li><%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-dark' %></li><!--ログイン画面へのリンク-->
+                  <% end %>
             </ul>
-          </div>
-        <% else %><!--urlにadminが無い場合-->
-          <% if customer_signed_in? %> <!--顧客側がログイン中か確認する-->
-            <!--顧客側ログイン中のheader-->
-            <a class="navbar-brand" href="/"><%= image_tag 'logo.png', :size => '150x120' %></a><!--topページへのリンク-->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><!--レスポンシブ対応の展開ボタン-->
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="row">
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav ml-auto">
-                <li><%= link_to "マイページ", mypage_path, class: 'nav-link text-dark' %></li><!--マイページへのリンク-->
-                <li><%= link_to "商品一覧", items_path, class: 'nav-link text-dark' %></li><!--商品一覧へのリンク-->
-                <li><%= link_to "カート", cart_items_path, class: 'nav-link text-dark' %></li><!--カートへのリンク-->
-                <li><%= link_to "ログアウト", destroy_customer_session_path, class: 'nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
-              </ul>
-            </div>
-            <%= render "layouts/search", { search: @search } %>
-            </div>
-          <% else %>
-            <!--顧客側ログアウト中のheader-->
-            <a class="navbar-brand" href="/admin"><%= image_tag 'logo.png', :size => '150x120' %></a><!--注文履歴一覧へのリンク-->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><!--レスポンシブ対応の展開ボタン-->
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav ml-auto">
-                <li><%= link_to "商品一覧", admin_items_path, class: 'nav-link text-dark' %></li><!--商品一覧へのリンク-->
-                <li><%= link_to "会員一覧", admin_customers_path, class: 'nav-link text-dark' %></li><!--会員一覧へのリンク-->
-                <li><%= link_to "注文履歴一覧", admin_root_path, class: 'nav-link text-dark' %></li><!--注文履歴一覧へのリンク-->
-                <li><%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-dark' %></li><!--ジャンル一覧へのリンク-->
-                <li><%= link_to "ログアウト", destroy_admin_session_path, class: 'nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
-              </ul>
-            </div>
+        </div>
+          <% unless admin_signed_in? %>
+          <%= render "layouts/search", { search: @search } %>
           <% end %>
-        <% end %>
-      <% elsif customer_signed_in? %> <!--顧客側がログイン中か確認する-->
-        <!--顧客側のheader-->
-        <a class="navbar-brand" href="/"><%= image_tag 'logo.png', :size => '150x120' %></a><!--topページへのリンク-->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><!--レスポンシブ対応の展開ボタン-->
-          <span class="navbar-toggler-icon"></span>
-        </button>
-         <div class="row">
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ml-auto">
-            <li><%= link_to "マイページ", mypage_path, class: 'nav-link text-dark' %></li><!--マイページへのリンク-->
-            <li><%= link_to "商品一覧", items_path, class: 'nav-link text-dark' %></li><!--商品一覧へのリンク-->
-            <li><%= link_to "カート", cart_items_path, class: 'nav-link text-dark' %></li><!--カートへのリンク-->
-            <li><%= link_to "ログアウト", destroy_customer_session_path, class: 'nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
-          </ul>
         </div>
-        <%= render "layouts/search", { search: @search } %>
-        </div>
-      <% else %><!--非ログイン時に表示するheader-->
-        <a class="navbar-brand" href="/"><%= image_tag 'logo.png', :size => '150x120' %></a><!--topページへのリンク-->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"><!--レスポンシブ対応の展開ボタン-->
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="row">
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ml-auto">
-            <li><%= link_to "About", about_path, class: 'nav-link text-dark' %></li><!--aboutへのリンク-->
-            <li><%= link_to "商品一覧", items_path, class: 'nav-link text-dark' %></li><!--商品一覧へのリンク-->
-            <li><%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-dark' %></li><!--新規登録へのリンク-->
-            <li><%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-dark' %></li><!--ログイン画面へのリンク-->
-          </ul>
-        </div>
-        <%= render "layouts/search", { search: @search } %>
-        </div>
-      <% end %>
-
     </div>
   </nav>
 </header>
+
+
