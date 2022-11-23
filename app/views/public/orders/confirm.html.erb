@@ -6,7 +6,7 @@
         <div class="col-7">
             <div class="table-responsive">
                 <table class="table table-bordered">
-                    <thead>
+                    <thead style="background-color:rgba(130,0,0,0.4);">
                         <tr>
                             <th>商品名</th>
                             <th>単価（税込）</th>
@@ -15,7 +15,7 @@
                         </tr>
                     </thead>
                     <% @cart_items.each do |cart_item| %>
-                    <tbody>
+                    <tbody style="background-color:rgba(255,255,255,0.5);">
                         <tr>
                             <td>
                                 <%= image_tag cart_item.item.get_image(150,100) %>
@@ -35,20 +35,20 @@
                 <table class="table table-bordered">
                     <%= form_with model: @order, url: orders_path, method: :post, local:true do |f| %>
                     <tr>
-                        <td>商品合計</td>
-                        <td>¥<%= @total_price.to_s(:delimited) %></td>
+                        <td style="background-color:rgba(255,0,0,0.2);">商品合計</td>
+                        <td style="background-color:rgba(255,255,255,0.5);">¥<%= @total_price.to_s(:delimited) %></td>
                     </tr>
                     <tr>
-                        <td>送料</td>
-                        <td>
+                        <td style="background-color:rgba(255,0,0,0.2);">送料</td>
+                        <td style="background-color:rgba(255,255,255,0.5);">
                             ¥<%= @order.postage.to_s(:delimited) %>
                             <%= f.hidden_field :postage, :value => @order.postage %>
                         </td>
 
                     </tr>
                     <tr>
-                        <td>請求金額</td>
-                        <td>
+                        <td style="background-color:rgba(255,0,0,0.2);">請求金額</td>
+                        <td style="background-color:rgba(255,255,255,0.5);">
                             ¥<%= (@total_price + @order.postage).to_s(:delimited) %>
                             <%= f.hidden_field :total_payment, :value => (@total_price + @order.postage) %>
                         </td>
@@ -59,7 +59,7 @@
     </div>
     <div class="row">
         <div class="col-8">
-            <div class="row">
+            <div class="row", style="background-color:rgba(0,170,0,0.2);">
                 <div class="col-4">
                     <h3>支払方法</h3>
                 </div>
@@ -68,7 +68,7 @@
                     <%= f.hidden_field :payment_method, :value => @order.payment_method %>
                 </div>
             </div>
-            <div class="row">
+            <div class="row", style="background-color:rgba(0,0,170,0.2);">
                 <div class="col-4">
                     <h3>お届け先</h3>
                 </div>
