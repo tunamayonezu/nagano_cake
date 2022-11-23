@@ -18,6 +18,7 @@
                   <li><%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-dark' %></li><!--ジャンル一覧へのリンク-->
                   <li><%= link_to "ログアウト", destroy_admin_session_path, class: 'nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
                 <% end %>
+
               <% end %>   
               <!--顧客側ログイン中のheader-->
               <% if customer_signed_in? %> <!--顧客側がログイン中か確認する-->
@@ -27,7 +28,7 @@
                   <li><%= link_to "ログアウト", destroy_customer_session_path, class: 'nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
               <!--顧客側のheader-->  
               <% else %><!--非ログイン時に表示するheader-->
-                  <li><%= link_to "About", about_path, class: 'nav-link text-dark' %></li><!--aboutへのリンク-->
+                  <li><%= link_to "About", about_path, 'data-turbolinks': false, class: 'nav-link text-dark' %></li><!--aboutへのリンク-->
                   <li><%= link_to "商品一覧", items_path, class: 'nav-link text-dark' %></li><!--商品一覧へのリンク-->
                   <li><%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-dark' %></li><!--新規登録へのリンク-->
                   <li><%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-dark' %></li><!--ログイン画面へのリンク-->
