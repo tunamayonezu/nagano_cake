@@ -24,3 +24,8 @@
 main {
  padding-bottom: 175px;
 }
+
+.link {
+    text-decoration: none;
+    color: white ;
+}
