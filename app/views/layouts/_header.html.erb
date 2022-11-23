@@ -18,6 +18,7 @@
                   <li><%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-dark' %></li><!--ジャンル一覧へのリンク-->
                   <li><%= link_to "ログアウト", destroy_admin_session_path, class: 'nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
                 <% end %>
+              <% end %>
               <!--顧客側ログイン中のheader-->
               <% if customer_signed_in? %> <!--顧客側がログイン中か確認する-->
                   <li><%= link_to "マイページ", mypage_path, class: 'nav-link text-dark' %></li><!--マイページへのリンク-->
