@@ -15,7 +15,7 @@
                         <p class="text-left"><%= item.name %></p>
                         <p class="text-left">販売停止中</p>
                     <% else %>
-                        <%= link_to item_path(item), class: "link-dark" do %>
+                        <%= link_to item_path(item), class: 'nav-link text-dark' do %>
                         <%= image_tag item.get_image(150, 150) %>
                         <p class="text-left"><%= item.name %></p>
                         <p class="text-left">¥<%= item.purchase_price %></p>
@@ -24,7 +24,7 @@
                 </div>
                 <% end %>
             </div>
-            <%= paginate @items , class: "text-dark" %>
+            <%= paginate @items , class: 'nav-link text-dark' %>
         </div>
     </div>
 </div>
