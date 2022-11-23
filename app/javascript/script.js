@@ -1,6 +1,6 @@
 /*global $*/
 
-$(document).ready(function () {
+$(document).on('turbolinks:load',function () {
   $("#target").skippr({
     // スライドショーの変化 ("fade" or "slide")
     transition : 'slide',
