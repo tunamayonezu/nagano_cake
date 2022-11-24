@@ -7,23 +7,23 @@
     <table class="table table-bordered col-6 offset-1 ">
       <tbody>
         <tr>
-          <td style="background-color:rgba(0,255,85,0.4);">商品名</td>
+          <td class="text-white" style="background-color:rgba(130,0,0,0.8);">商品名</td>
           <td style="background-color:rgba(255,255,255,0.5);"><%= @item.name %></td>
         </tr>
         <tr>
-          <td style="background-color:rgba(0,255,85,0.4);">商品説明</td>
+          <td class="text-white" style="background-color:rgba(130,0,0,0.8);">商品説明</td>
           <td style="background-color:rgba(255,255,255,0.5);"><%= @item.explanation %></td>
         </tr>
         <tr>
-          <td style="background-color:rgba(0,255,85,0.4);">ジャンル</td>
+          <td class="text-white" style="background-color:rgba(130,0,0,0.8);">ジャンル</td>
           <td style="background-color:rgba(255,255,255,0.5);"><%= @item.genre.name %></td>
         </tr>
         <tr>
-          <td style="background-color:rgba(0,255,85,0.4);">税抜き価格 (税込み価格)</td>
+          <td class="text-white" style="background-color:rgba(130,0,0,0.8);">税抜き価格 (税込み価格)</td>
           <td style="background-color:rgba(255,255,255,0.5);"><%= @item.price %> (<%= @item.purchase_price %>)円</td>
         </tr>
         <tr>
-          <td style="background-color:rgba(0,255,85,0.4);">販売ステータス</td>
+          <td class="text-white" style="background-color:rgba(130,0,0,0.8);">販売ステータス</td>
           <% if @item.is_active  %>
             <td class= "text-suscces" style="background-color:rgba(255,255,255,0.5);"><b>販売中</b></td>
           <% else %>
