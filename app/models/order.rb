@@ -10,9 +10,6 @@ class Order < ApplicationRecord
   #################
   #validates
 
-  validates :postcode, presence: true
-  validates :address, presence: true
-  validates :name, presence: true
 
   #################
 

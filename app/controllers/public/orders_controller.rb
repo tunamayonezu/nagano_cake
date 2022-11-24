@@ -2,6 +2,7 @@ class Public::OrdersController < ApplicationController
 #before_action :authenticate_customer
 
 def new
+    @delivery = current_customer.deliveries.new
     @cart_items = current_customer.cart_items ##ログインカスタマーのカート内アイテムを指定
     if @cart_items == nil ##カート内アイテムの有無を確認
         render cart_items_path ##cart_itemsに戻る
@@ -43,9 +44,9 @@ def confirm
             @order.postcode = @delivery.postcode ##郵便番号を反映
             @order.address = @delivery.address ##住所を反映
             @order.name = @delivery.name ##名前を反映
+        else
+            render "new" ##newに戻る
         end
-    else
-        render "new" ##newに戻る
     end
         
 end
