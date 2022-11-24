@@ -1,2 +1,46 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap');
+
+
+*{
+  font-family: 'Kiwi Maru', serif;
+}
+
+header li {
+    font-size: 20px;
+    margin-right: 14px;
+}
+
+/* ページネーション */
+
+.pagination{
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: center;
+    span{
+      color: #000000;
+        background-color: #FFFFFF;
+        text-align: center;
+        width: 50px;
+        :hover{
+            background-color:#f3f3f3;
+        }
+        a{
+            display: block;
+            width: 100%;
+            height: 100%;
+            :hover{
+                background-color: #f3f3f3;
+              }
+        }
+    }
+}
+
+.current{
+    color: #008CFF;
+}
+
+.gap{
+    background-color: white !important;
+}

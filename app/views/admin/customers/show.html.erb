@@ -1,2 +1,54 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+<div class='container'>
+  <h3 class= "pt-4"><%= @customer.full_name %>さんの会員詳細</h3>
+  <div class='row'>
+    <div class='col-md-8 offset-md-1'>
+      <table class='table table-borderless'>
+        <thead>
+          <tr>
+            <th style="background-color:rgba(130,0,0,0.8);", class="text-white">会員ID</th>
+            <td style="background-color:rgba(255,255,255,0.5);"><%= @customer.id %></td>
+          </tr>
+          <tr>
+            <th style="background-color:rgba(130,0,0,0.8);", class="text-white">氏名</th>
+            <td style="background-color:rgba(255,255,255,0.5);"><%= @customer.full_name %></td>
+          </tr>
+          <tr>
+            <th style="background-color:rgba(130,0,0,0.8);", class="text-white">フリガナ</th>
+            <td style="background-color:rgba(255,255,255,0.5);"><%= @customer.full_name_kana %></td>
+          </tr>
+          <tr>
+            <th style="background-color:rgba(130,0,0,0.8);", class="text-white">郵便番号</th>
+            <td style="background-color:rgba(255,255,255,0.5);"><%= @customer.postcode %></td>
+          </tr>
+          <tr>
+            <th style="background-color:rgba(130,0,0,0.8);", class="text-white">住所</th>
+            <td style="background-color:rgba(255,255,255,0.5);"><%= @customer.address %></td>
+            </tr>
+          <tr>
+            <th style="background-color:rgba(130,0,0,0.8);", class="text-white">電話番号</th>
+            <td style="background-color:rgba(255,255,255,0.5);"><%= @customer.phone_number %></td>
+          </tr>
+          <tr>
+            <th style="background-color:rgba(130,0,0,0.8);", class="text-white">メールアドレス</th>
+            <td style="background-color:rgba(255,255,255,0.5);"><%= @customer.email %></td>
+          </tr>
+          <tr>
+            <th style="background-color:rgba(130,0,0,0.8);", class="text-white">会員ステータス</th>
+            <td style="background-color:rgba(255,255,255,0.5);">
+              <% if @customer.is_deleted %>
+            <b class="text-Secondary">退会</b>
+              <% else %>
+            <b class="text-success">有効</b>
+            <% end %>
+            </td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><%= link_to "編集する", edit_admin_customer_path(@customer.id), class: 'btn btn-success' %></td>
+            <td><%= link_to "注文履歴一覧を見る", admin_root_path(@customer.id), class: 'btn btn-primary' %></td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>

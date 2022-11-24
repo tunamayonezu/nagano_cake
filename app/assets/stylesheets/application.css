@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+@import "skippr";
+
+#top-image {
+    height: 500px;
+    width: 100%;
+}
+
+.link {
+    text-decoration: none;
+    color: white ;
+}
+
+main {
+  padding-bottom: 175px;
+  background-image: url("assets/bacground3.jpeg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding-top: 10px;
