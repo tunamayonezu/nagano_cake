@@ -6,8 +6,8 @@
     <div class="row">
         <div class="table-responsive">
             <table class="table table-bordered">
-                <thead style= "background-color: #880000;"><!--ほり、背景"茶色"追記-->
-                    <tr  class="text-white"><!--ほり、フォントカラーを白に-->
+                <thead style="background-color:rgba(130,0,0,0.8);"><!--ほり、背景"茶色"追記-->
+                    <tr class="text-white"><!--ほり、フォントカラーを白に-->
                         <th>注文日</th>
                         <th>配送先</th>
                         <th>注文商品</th>
@@ -17,7 +17,7 @@
                     </tr>
                 </thead>
                 <% @orders.each do |order| %>
-                    <tbody>
+                    <tbody style="background-color:rgba(255,255,255,0.5);">
                         <tr>
                             <td><%= order.created_at.strftime("%Y/%m/%d") %></td>
                             <td>
