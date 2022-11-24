@@ -10,9 +10,6 @@ class Order < ApplicationRecord
   #################
   #validates
 
-  validates :name, presence: true, length: { minimum: 3 }, if: -> { address_option == "delivery" }
-  validates :postcode, presence: true, length: { is: 7 }, numericality: {only_integer: true}, if: -> { address_option == "delivery" }
-  validates :address, presence: true, uniqueness: true, length: { minimum: 10 }, if: -> { address_option == "delivery" }
 
   #################
 
