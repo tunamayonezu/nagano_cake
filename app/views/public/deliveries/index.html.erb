@@ -36,16 +36,16 @@
 </div>
 
 <div class="table-responsive mt-5" style="width:70%; margin:auto;">
- <table class="table table-bordered border-primary" style="background-color:#FDF5E6;">
-   <thead>
-    <tr class="text-center">
+ <table class="table table-bordered border-primary">
+   <thead  style="background-color:rgba(130,0,0,0.8);">
+    <tr class="text-center text-white">
       <th>郵便番号</th>
       <th>住所</th>
       <th>宛名</th>
        <th colspan="5"></th>
     </tr>
   </thead>
-  <tbody>
+  <tbody style="background-color:white;">
      <% @deliveries.each do |delivery| %>
      <tr class="text-center">
        <td><%= delivery.postcode %></td>
