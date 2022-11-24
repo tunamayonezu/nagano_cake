@@ -5,7 +5,7 @@
         <table class='table table-borderless'>
           <thead>
             <tr>
-              <th style= "background-color: #880000;", class="text-white">購入者</th>
+              <th style= "background-color:rgba(130,0,0,0.8);", class="text-white">購入者</th>
               <td style="background-color:rgba(255,255,255,0.5);">
                 <%= link_to admin_customer_path do %>
                   <%= @order.customer.full_name %>
@@ -13,18 +13,18 @@
                 <% end %>
             </tr>
             <tr>
-              <th style= "background-color: #880000;", class="text-white">配送先</th>
+              <th style= "background-color:rgba(130,0,0,0.8);", class="text-white">配送先</th>
               <td style="background-color:rgba(255,255,255,0.5);">
                 〒<%= @order.postcode %><%= @order.address %><br>
                   <%= @order.name %>　様
               </td>
             </tr>
             <tr>
-              <th style= "background-color: #880000;", class="text-white">支払方法</th>
+              <th style= "background-color:rgba(130,0,0,0.8);", class="text-white">支払方法</th>
               <td style="background-color:rgba(255,255,255,0.5);"><%= @order.payment_method_i18n %></td>
             </tr>
             <tr>
-              <th style= "background-color: #880000;", class="text-white">注文ステータス</th>
+              <th style= "background-color:rgba(130,0,0,0.8);", class="text-white">注文ステータス</th>
               <td style="background-color:rgba(255,255,255,0.5);">
                 <%= form_with model: @order, url: admin_order_path(@order), method: :patch do |f| %>
                   <%= f.select :status, Order.statuses.keys.map {|k| [I18n.t("enums.order.status.#{k}"), k]} %><%= f.submit "更新", class:"ml-5 btn btn-secondary", style:"font-weight:bold;" %>
