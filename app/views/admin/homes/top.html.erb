@@ -1,9 +1,9 @@
-<div class='container px-5 px-sm-0'>
+<div class='container'>
+  <h3 class= "pt-4">注文履歴一覧</h3>
   <div class='row'>
-    <div class='col-md-8 offset-md-1'>
-      <h2 class="ml-5 mt-3", style="background-color: #0f0; width:230px; padding-left: 12px; margin-bottom: 40px;">注文履歴一覧</h2>
-      <table class='table table-hover table-inverse'>
-        <thead>
+    <div class='col-md-8 offset-md-1 pt-4'>
+      <table class='table text-center'>
+        <thead style= "background-color: #880000;", class="text-white">
           <tr>
             <th>購入日時</th>
             <th>購入者</th>
@@ -12,17 +12,17 @@
           </tr>
         </thead>
         <% @orders.each do |order| %>
-         <tbody>
+         <tbody style= "background-color: #fff;">
            <tr>
-             <!-- lメソッドを使って書式を指定する -->
+
              <td><%= link_to admin_order_path(order.id) do %>
-             <u><%= order.created_at.strftime('%Y/%m/%d %X') %><u>
-               <%#=  l order.created_at %>
+             <u><%= order.created_at.strftime('%Y/%m/%d　%H:%M') %><u>
+
              <% end %>
              </td>
              <td><%= order.customer.full_name %></td>
-             <td><%= order.items.sum(:quantity) %></td>
-             <td><%= order.status_i18n %></td>
+             <td class="text-center"><%= order.items.sum(:quantity) %></td>
+             <td class="text-center"><%= order.status_i18n %></td>
            </tr>
          </tbody>
           <% end %>
