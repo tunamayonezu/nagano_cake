@@ -23,7 +23,7 @@
                   <li><%= link_to "商品一覧", items_path, class: 'nav-link text-dark' %></li><!--商品一覧へのリンク-->
                   <li><%= link_to "カート", cart_items_path, class: 'nav-link text-dark' %></li><!--カートへのリンク-->
                   <li><%= link_to "ログアウト", destroy_customer_session_path, class: 'nav-link text-dark', method: :delete %></li><!--ログアウトへのリンク-->
-              <!--顧客側のheader-->  
+              <!--顧客側のheader-->
               <% else %><!--非ログイン時に表示するheader-->
                 <% unless admin_signed_in? %>
                   <li><%= link_to "About", about_path, 'data-turbolinks': false, class: 'nav-link text-dark' %></li><!--aboutへのリンク-->
