@@ -4,27 +4,27 @@
     <div class="col-sm-12">
       <%= form_with model: @item, url:admin_item_path(@item.id), method: :patch, local: true do |f| %>
         <div class="form-group row">
-          <%= f.label :商品画像, class: 'col-md-3 lead', style: "background-color: rgba(0,255,85,0.4);" %>
+          <%= f.label :商品画像, class: 'text-white col-md-3 lead', style: "background-color: rgba(130,0,0,0.8);" %>
           <%= f.file_field :image, class: 'col-md-6 offset-1', accept: "image/*" %>
         </div>
         <div class="form-group row">
-          <%= f.label :商品名, class: 'col-md-3 lead', style: "background-color: rgba(0,255,85,0.4);" %>
+          <%= f.label :商品名, class: 'text-white col-md-3 lead', style: "background-color: rgba(130,0,0,0.8);" %>
           <%= f.text_field :name, class: 'col-md-6 offset-1 border border-success' %>
         </div>
         <div class="form-group row">
-          <%= f.label :商品説明, class: 'col-md-3 lead', style: "background-color: rgba(0,255,85,0.4);" %>
+          <%= f.label :商品説明, class: 'text-white col-md-3 lead', style: "background-color: rgba(130,0,0,0.8);" %>
           <%= f.text_area :explanation, class: 'col-md-6 offset-1 border border-success' %>
         </div>
         <div class="form-group row">
-          <%= f.label :ジャンル, class: 'col-md-3 lead', style: "background-color: rgba(0,255,85,0.4);" %>
+          <%= f.label :ジャンル, class: 'text-white col-md-3 lead', style: "background-color: rgba(130,0,0,0.8);" %>
           <%= f.collection_select( :genre_id, Genre.all, :id, :name, {include_blank: "ジャンルを選択してください"}, {class: 'col-md-7 offset-1 border border-success'}) %>
         </div>
         <div class="form-group row">
-          <%= f.label :税抜き価格, class: 'col-md-3 lead', style: "background-color: rgba(0,255,85,0.4);" %>
+          <%= f.label :税抜き価格, class: 'text-white col-md-3 lead', style: "background-color: rgba(130,0,0,0.8);" %>
           <%= f.text_field :price, class: 'col-md-7 offset-1 border border-success' %><span class="col-md-1">円</span>
         </div>
         <div class="form-group row">
-          <%= f.label :販売ステータス, class: 'col-md-3 lead', style: "background-color: rgba(0,255,85,0.4);" %>
+          <%= f.label :販売ステータス, class: 'text-white col-md-3 lead', style: "background-color: rgba(130,0,0,0.8);" %>
           <%= f.radio_button :is_active, 1, checked: true, class: 'offset-1' %>販売中
           <%= f.radio_button :is_active, 0, class: 'offset-1' %>販売停止中
         </div>

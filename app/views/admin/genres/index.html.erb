@@ -7,15 +7,15 @@
       <div class="form-group row">
         <%= f.label :ジャンル名, class: 'col-md-3 offset-1 text-center lead' %>
         <%= f.text_field :name, class: 'col-md-4' %>
-        <%= f.submit :新規登録, class: 'btn btn-outline-success col-md-2 offset-1' %>
+        <%= f.submit :新規登録, class: 'btn btn-secondary col-md-2 offset-1' %>
       </div>
     <% end %>
   </div>
   <div class="row">
     <table class="table table-hover">
-      <thead style="background-color:rgba(140,0,0,0.6);">
+      <thead style="background-color:rgba(130,0,0,0.8);">
         <tr>
-          <th>ジャンル名</th>
+          <th class="text-white">ジャンル名</th>
           <th></th>
         </tr>
       </thead>
@@ -23,7 +23,7 @@
         <% @genres.each do |genre| %>
           <tr>
             <td><%= genre.name %></td>
-            <td><%= link_to "編集する", edit_admin_genre_path(genre), class: "btn btn-outline-success" %></td>
+            <td><%= link_to "編集する", edit_admin_genre_path(genre), class: "btn btn-success" %></td>
           </tr>
         <% end %>
       </tbody>
