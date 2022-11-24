@@ -5,36 +5,36 @@
       <table class='table table-borderless'>
         <thead>
           <tr>
-            <th style= "background-color: #880000;", class="text-white text-center">会員ID</th>
-            <td style= "background-color: #fff;"><%= @customer.id %></td>
+            <th style="background-color:rgba(130,0,0,0.8);", class="text-white">会員ID</th>
+            <td style="background-color:rgba(255,255,255,0.5);"><%= @customer.id %></td>
           </tr>
           <tr>
-            <th style= "background-color: #880000;", class="text-white text-center">氏名</th>
-            <td style= "background-color: #fff;"><%= @customer.full_name %></td>
+            <th style="background-color:rgba(130,0,0,0.8);", class="text-white">氏名</th>
+            <td style="background-color:rgba(255,255,255,0.5);"><%= @customer.full_name %></td>
           </tr>
           <tr>
-            <th style= "background-color: #880000;", class="text-white text-center">フリガナ</th>
-            <td style= "background-color: #fff;"><%= @customer.full_name_kana %></td>
+            <th style="background-color:rgba(130,0,0,0.8);", class="text-white">フリガナ</th>
+            <td style="background-color:rgba(255,255,255,0.5);"><%= @customer.full_name_kana %></td>
           </tr>
           <tr>
-            <th style= "background-color: #880000;", class="text-white text-center">郵便番号</th>
-            <td style= "background-color: #fff;"><%= @customer.postcode %></td>
+            <th style="background-color:rgba(130,0,0,0.8);", class="text-white">郵便番号</th>
+            <td style="background-color:rgba(255,255,255,0.5);"><%= @customer.postcode %></td>
           </tr>
           <tr>
-            <th style= "background-color: #880000;", class="text-white text-center">住所</th>
-            <td style= "background-color: #fff;"><%= @customer.address %></td>
+            <th style="background-color:rgba(130,0,0,0.8);", class="text-white">住所</th>
+            <td style="background-color:rgba(255,255,255,0.5);"><%= @customer.address %></td>
             </tr>
           <tr>
-            <th style= "background-color: #880000;", class="text-white text-center">電話番号</th>
-            <td style= "background-color: #fff;"><%= @customer.phone_number %></td>
+            <th style="background-color:rgba(130,0,0,0.8);", class="text-white">電話番号</th>
+            <td style="background-color:rgba(255,255,255,0.5);"><%= @customer.phone_number %></td>
           </tr>
           <tr>
-            <th style= "background-color: #880000;", class="text-white text-center">メールアドレス</th>
-            <td style= "background-color: #fff;"><%= @customer.email %></td>
+            <th style="background-color:rgba(130,0,0,0.8);", class="text-white">メールアドレス</th>
+            <td style="background-color:rgba(255,255,255,0.5);"><%= @customer.email %></td>
           </tr>
           <tr>
-            <th style= "background-color: #880000;", class="text-white text-center">会員ステータス</th>
-            <td style= "background-color: #fff;">
+            <th style="background-color:rgba(130,0,0,0.8);", class="text-white">会員ステータス</th>
+            <td style="background-color:rgba(255,255,255,0.5);">
               <% if @customer.is_deleted %>
             <b class="text-Secondary">退会</b>
               <% else %>

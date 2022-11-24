@@ -6,7 +6,7 @@
           <thead>
             <tr>
               <th style= "background-color: #880000;", class="text-white">購入者</th>
-              <td style= "background-color: #fff;">
+              <td style="background-color:rgba(255,255,255,0.5);">
                 <%= link_to admin_customer_path do %>
                   <%= @order.customer.full_name %>
               </td>
@@ -14,18 +14,18 @@
             </tr>
             <tr>
               <th style= "background-color: #880000;", class="text-white">配送先</th>
-              <td style= "background-color: #fff;">
+              <td style="background-color:rgba(255,255,255,0.5);">
                 〒<%= @order.postcode %><%= @order.address %><br>
                   <%= @order.name %>　様
               </td>
             </tr>
             <tr>
               <th style= "background-color: #880000;", class="text-white">支払方法</th>
-              <td style= "background-color: #fff;"><%= @order.payment_method_i18n %></td>
+              <td style="background-color:rgba(255,255,255,0.5);"><%= @order.payment_method_i18n %></td>
             </tr>
             <tr>
               <th style= "background-color: #880000;", class="text-white">注文ステータス</th>
-              <td style= "background-color: #fff;">
+              <td style="background-color:rgba(255,255,255,0.5);">
                 <%= form_with model: @order, url: admin_order_path(@order), method: :patch do |f| %>
                   <%= f.select :status, Order.statuses.keys.map {|k| [I18n.t("enums.order.status.#{k}"), k]} %><%= f.submit "更新", class:"ml-5 btn btn-secondary", style:"font-weight:bold;" %>
                 <% end %>
@@ -38,7 +38,7 @@
     <div class="row py-3">
       <div class="col-xs-8 col-lg-8">
         <table class='table'>
-          <thead style= "background-color: #880000;" class="text-white">
+          <thead style= "background-color:rgba(130,0,0,0.8);", class="text-white">
             <tr>
               <th>商品名</th>
               <th>単価(税込)</th>
@@ -72,17 +72,17 @@
       <div class="col-xs-4 col-lg-4 py-4 pl-5">
         <table  class="table table-borderless ">
           <tr>
-            <td style= "background-color: #880000;", class="text-white">商品合計</td>
+            <td style="background-color:rgba(130,0,0,0.8);", class="text-white">商品合計</td>
             <td style= "background-color: #fff;">
               ¥<%= (@order.total_payment - @order.postage).to_s(:delimited)  %>
             </td>
           </tr>
           <tr>
-            <td style= "background-color: #880000;", class="text-white">配送料</td>
+            <td style="background-color:rgba(130,0,0,0.8);", class="text-white">配送料</td>
             <td style= "background-color: #fff;">¥<%= @order.postage %></td>
           </tr>
           <tr>
-            <td style= "background-color: #880000;", class="text-white"><h4>ご請求額</h4></th>
+            <td style="background-color:rgba(130,0,0,0.8);", class="text-white"><h4>ご請求額</h4></th>
             <td style= "background-color: #fff;"><h4>¥<%= @order.total_payment.to_s(:delimited) %></h4></th>
           </tr>
         </table>

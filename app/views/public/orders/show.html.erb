@@ -7,23 +7,23 @@
         <div class="table-responsive">
             <table class="table table-bordered">
                 <tr><!--styleとclass追記-->
-                    <td style= "background-color: #880000;", class="text-white">注文日</td>
-                    <td style= "background-color: #fff;"><%= @order.created_at.strftime("%Y/%m/%d") %></td>
+                    <td style="background-color:rgba(130,0,0,0.8);", class="text-white">注文日</td>
+                    <td style="background-color:rgba(255,255,255,0.5);"><%= @order.created_at.strftime("%Y/%m/%d") %></td>
                 </tr>
                 <tr>
-                    <td style= "background-color: #880000;", class="text-white">配送先</td>
-                    <td style= "background-color: #fff;">
+                    <td style="background-color:rgba(130,0,0,0.8);", class="text-white">配送先</td>
+                    <td style="background-color:rgba(255,255,255,0.5);">
                         〒<%= @order.postcode %><br>
                         <%= @order.address %>
                     </td>
                 </tr>
                 <tr>
-                    <td style= "background-color: #880000;", class="text-white">支払方法</td>
-                    <td style= "background-color: #fff;"><%= @order.payment_method_i18n %></td>
+                    <td style="background-color:rgba(130,0,0,0.8);", class="text-white">支払方法</td>
+                    <td style="background-color:rgba(255,255,255,0.5);"><%= @order.payment_method_i18n %></td>
                 </tr>
                 <tr>
-                    <td style= "background-color: #880000;", class="text-white">ステータス</td>
-                    <td style= "background-color: #fff;"><%= @order.status_i18n %></td>
+                    <td style="background-color:rgba(130,0,0,0.8);", class="text-white">ステータス</td>
+                    <td style="background-color:rgba(255,255,255,0.5);"><%= @order.status_i18n %></td>
                 </tr>
             </table>
         </div>
@@ -34,16 +34,16 @@
         <div class="table-responsive">
             <table class="table table-bordered table-borderless">
                 <tr>
-                    <td style= "background-color: #880000;", class="text-white">商品合計</td>
-                    <td style= "background-color: #fff;">¥<%= (@order.total_payment - @order.postage).to_s(:delimited) %></td>
+                    <td style="background-color:rgba(130,0,0,0.8);", class="text-white">商品合計</td>
+                    <td style="background-color:rgba(255,255,255,0.5);">¥<%= (@order.total_payment - @order.postage).to_s(:delimited) %></td>
                 </tr>
                 <tr>
-                    <td style= "background-color: #880000;", class="text-white">配送料</td>
-                    <td style= "background-color: #fff;">¥<%= @order.postage %></td>
+                    <td style="background-color:rgba(130,0,0,0.8);", class="text-white">配送料</td>
+                    <td style="background-color:rgba(255,255,255,0.5);">¥<%= @order.postage %></td>
                 </tr>
                 <tr>
-                    <th style= "background-color: #880000;", class="text-white"><h4>ご請求額</h4></th>
-                    <th style= "background-color: #fff;"><h4>¥<%= @order.total_payment.to_s(:delimited) %></h4></th>
+                    <th style="background-color:rgba(130,0,0,0.8);", class="text-white"><h4>ご請求額</h4></th>
+                    <th style="background-color:rgba(255,255,255,0.5);"><h4>¥<%= @order.total_payment.to_s(:delimited) %></h4></th>
                 </tr>
             </table>
         </div>
@@ -54,7 +54,7 @@
             <p>注文内容</p>
         <div class="table-responsive">
             <table class="table table-bordered">
-                <thead  style= "background-color: #880000;", class="text-white"><!--追記-->
+                <thead  style="background-color:rgba(130,0,0,0.8);", class="text-white"><!--追記-->
                     <tr>
                         <td>商品</td>
                         <td>単価（税込）</td>
@@ -62,7 +62,7 @@
                         <td>小計</td>
                     </tr>
                 </thead>
-                <tbody style= "background-color: #fff;">
+                <tbody style="background-color:rgba(255,255,255,0.5);">
                     <% @order_item.each do |order_item| %>
                     <tr>
                         <td><%= order_item.item.name %></td>

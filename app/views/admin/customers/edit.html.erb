@@ -5,7 +5,7 @@
   </div>
   <div class="row">
     <%= form_with model: @container, url: admin_customer_path(@customer.id), local: true ,method: :patch do |f| %>
-      <table class='table table-borderless', style= "background-color: #ddd;">
+      <table class='table table-borderless', style="background-color:rgba(255,255,255,0.5);">
         <tr class="form-group">
           <th style= "background-color: #880000;", class="text-white">会員ID</th>
           <td class="text-center"><%= @customer.id %></td>
