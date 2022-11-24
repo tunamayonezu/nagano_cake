@@ -1,15 +1,17 @@
 class Admin::OrderItemsController < ApplicationController
 
   def update
-    @order = Order.find_by(params[:id])#id以外のカラムを検索している　モデルの中かな
-    @order_item = OrderItem.find(params[:order_item][:order_item_id])#ビューのhidden_fieldを使用するのにorder_itemとそのidを定義している
+    @order_item = OrderItem.find(params[:id])#id以外のカラムを検索している　モデルの中かな
+    @order = @order_item.order#ビューのhidden_fieldを使用するのにorder_itemとそのidを定義している
     #@order_items = @order.order_items.all
 
     if @order_item.update(order_item_params)
+      if params[:order_item][:production_status] == "in_production"
       #params[:order_item][:production_status] == "in_production"#英語に変える 注文した商品の製作ステータスが、もしも製作中だったら
         @order.update(status: 2)
         #注文ステータスを製作中に変えてかsら
-        @order_item.update(order_item_params)#注文した商品(製作ステータス)を更新をする
+        @order_item.update(order_item_params)
+      end#注文した商品(製作ステータス)を更新をする
     end
 
     if @order.order_items.count == @order.order_items.where(production_status: "production_complete").count
