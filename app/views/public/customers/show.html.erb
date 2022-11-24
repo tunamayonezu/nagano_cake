@@ -1,40 +1,60 @@
-<div><%= flash[:notice] %></div>
-<h3>マイページ</h3>
-  <strong>会員情報</strong>
-  <%= link_to "編集する", info_edit_path, class: 'text-dark' %>
+<h3 class="text-center">マイページ</h3>
+<table class="container table table-borderless">
+  <tr class="row">
+   <td class="col text-center">
+     <h5 class="font-weight-bold">会員情報</h5>
+   </td>
+   <td class="col text-center">
+     <%= link_to "編集する", info_edit_path, class: 'text-dark btn btn-outline-warning btn-sm ' %>
+   </td>
+  </tr>
+</table>
 
-<table class="table">
+<div class="card w-50 mx-auto shadow-lg">
+  <table class="table">
    <tr>
      <td>氏名</td>
      <td><%= @customer.last_name %><%= @customer.first_name %></td>
    </tr>
-
    <tr>
      <td>カナ</td>
      <td><%= @customer.last_name_kana %><%= @customer.first_name_kana %></td>
    </tr>
-
    <tr>
      <td>郵便番号</td>
      <td><%= @customer.postcode %></td>
    </tr>
-
    <tr>
      <td>住所</td>
      <td><%= @customer.address %></td>
    </tr>
-
    <tr>
      <td>電話番号</td>
      <td><%= @customer.phone_number %></td>
    </tr>
-
    <tr>
      <td>メールアドレス</td>
      <td><%= @customer.email %></td>
    </tr>
+  </table>
+ </div>
 
+
+<table class="container mt-4 mr-2 table table-borderless">
+ <tr class="row ml-5">
+  <td>
+   <p class="font-weight-bold">配送先</p>
+  </td>
+  <td>
+   <%= link_to "一覧を見る", deliveries_path, class: 'btn btn-success btn-sm' %>
+  </td>
+ </tr>
+ <tr class="row ml-5">
+  <td>
+    <p class="font-weight-bold">注文履歴</p>
+  </td>
+  <td>
+    <%= link_to "一覧を見る", orders_path, class: 'btn btn-danger btn-sm' %>
+  </td>
+ </tr>
 </table>
-
-<strong>配送先</strong><%= link_to "一覧を見る", deliveries_path, class: 'btn btn-primary' %></br>
-<strong>注文履歴</strong><%= link_to "一覧を見る", orders_path, class: 'btn btn-primary' %>
